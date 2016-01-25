@@ -1,9 +1,9 @@
 # Home controller
 class HomeController < ApplicationController
   def index
-    # console
+    console
     @q = Company.ransack(params[:q])
-    @q.sorts = 'name asc' if @q.sorts.empty?
-    @companies = @q.result.paginate(page: params[:page])
+    @q.sorts = 'rankings_turnover desc' if @q.sorts.empty?
+    @companies = @q.result.includes(:rankings).paginate(page: params[:page])
   end
 end

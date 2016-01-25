@@ -1,24 +1,28 @@
 .table-responsive
 
-  / = simple_form_for @q, url: root_path, html: {class: 'form-vertical'} do |f|
+  = simple_form_for @q, url: root_path, method: :get, html: {class: 'form-inline'} do |f|
+    / = f.input :rankings_turnover, as: :boolean
+    / = f.input :rankings_employees, as: :boolean
 
-    / Search if the name field contains...
-    / = f.input :name_cont
+    .pull-right
+      = f.input :name_cont
 
-    / = f.button :submit
+      = f.button :submit
 
-  table.table.table-hover
+  br
+
+  table.table.table-hover.table-bordered.table-condensed
     thead
       tr
         th= sort_link(@q, :name)
-        th= sort_link(@q, :description)
-        th= sort_link(@q, :long_description)
+        th= sort_link(@q, :rankings_turnover)
+        th= sort_link(@q, :rankings_employees)
     tbody
       - @companies.each do |company|
         tr onclick="click_tr($(this))" data-url="#{company_url(company.id)}" data-id="#{company.id}"
           td= company.name
-          td= company.description
-          td= company.long_description
+          td= company.rankings.active.turnover
+          td= company.rankings.active.employees
 
   = will_paginate @companies, renderer: BootstrapPagination::Rails
 
