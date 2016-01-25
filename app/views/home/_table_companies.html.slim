@@ -15,8 +15,11 @@
         th= sort_link(@q, :long_description)
     tbody
       - @companies.each do |company|
-        tr
+        tr onclick="click_tr($(this))" data-url="#{company_url(company.id)}" data-id="#{company.id}"
           td= company.name
           td= company.description
           td= company.long_description
+
   = will_paginate @companies, renderer: BootstrapPagination::Rails
+
+  #modal_content

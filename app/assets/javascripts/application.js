@@ -15,3 +15,20 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+
+
+function click_tr(e) {
+  $.ajax({
+    url: e.data('url'),
+    type: "GET",
+    dataType: 'html',
+    data: {"id" : e.data('id')},
+    success: function(response) {
+      $("#modal_content").html(response);
+      $('#modal_infos').modal('toggle');
+    },
+    error: function(response) {
+      alert('raté');
+    }
+  });
+};
