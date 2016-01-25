@@ -26,8 +26,13 @@ gem 'slim'
 gem 'slim-rails'
 # bootstrap
 gem 'bootstrap-sass', '~> 3.3.6'
+# Search form
+gem 'simple_form'
 # basic search tool
 gem 'ransack'
+# pagination
+gem 'will_paginate', '~> 3.0.6'
+gem 'will_paginate-bootstrap'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

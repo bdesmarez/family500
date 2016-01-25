@@ -1,0 +1,22 @@
+.table-responsive
+
+  / = simple_form_for @q, url: root_path, html: {class: 'form-vertical'} do |f|
+
+    / Search if the name field contains...
+    / = f.input :name_cont
+
+    / = f.button :submit
+
+  table.table.table-hover
+    thead
+      tr
+        th= sort_link(@q, :name)
+        th= sort_link(@q, :description)
+        th= sort_link(@q, :long_description)
+    tbody
+      - @families.each do |family|
+        tr
+          td= family.name
+          td= family.description
+          td= family.long_description
+  = will_paginate @families, renderer: BootstrapPagination::Rails
