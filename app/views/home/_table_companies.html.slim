@@ -14,9 +14,9 @@
         th= sort_link(@q, :description)
         th= sort_link(@q, :long_description)
     tbody
-      - @families.each do |family|
+      - @companies.each do |company|
         tr
-          td= family.name
-          td= family.description
-          td= family.long_description
-  = will_paginate @families, renderer: BootstrapPagination::Rails
+          td= company.name
+          td= company.description
+          td= company.long_description
+  = will_paginate @companies, renderer: BootstrapPagination::Rails
