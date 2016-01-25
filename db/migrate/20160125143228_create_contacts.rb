@@ -1,0 +1,18 @@
+class CreateContacts < ActiveRecord::Migration
+  def change
+    create_table :contacts do |t|
+      t.references :company, index: true, foreign_key: true
+      t.string :civility
+      t.string :title
+      t.string :name
+      t.string :firstname
+      t.string :position
+      t.string :phone
+      t.string :mobile
+      t.string :fax
+      t.string :mail
+
+      t.timestamps null: false
+    end
+  end
+end
