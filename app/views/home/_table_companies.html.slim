@@ -1,0 +1,29 @@
+.table-responsive
+
+  = simple_form_for @q, url: root_path, method: :get, html: {class: 'form-inline'} do |f|
+    / = f.input :rankings_turnover, as: :boolean
+    / = f.input :rankings_employees, as: :boolean
+
+    .pull-right
+      = f.input :name_cont
+
+      = f.button :submit
+
+  br
+
+  table.table.table-hover.table-bordered.table-condensed
+    thead
+      tr
+        th= sort_link(@q, :name)
+        th= sort_link(@q, :rankings_turnover)
+        th= sort_link(@q, :rankings_employees)
+    tbody
+      - @companies.each do |company|
+        tr onclick="click_tr($(this))" data-url="#{company_url(company.id)}" data-id="#{company.id}"
+          td= company.name
+          td= company.rankings.active.turnover
+          td= company.rankings.active.employees
+
+  = will_paginate @companies, renderer: BootstrapPagination::Rails
+
+  #modal_content
