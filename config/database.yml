@@ -26,4 +26,5 @@ test:
 
 production:
   <<: *default
+  adapter: sqlite3
   database: family500_production
