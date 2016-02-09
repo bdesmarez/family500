@@ -4,5 +4,33 @@
     .col-lg-12
       = simple_form_for @company, html: {class: 'form-horizontal'} do |f|
         = f.input :name
-        = f.input :description
+        = f.input :alias
+        = f.input :family_name
+        = f.input :creation_date, as: :date
+        = f.input :branch
+        = f.input :postal_code
+        = f.input :city
+        = f.input :phone
+        = f.input :mobile
+        = f.input :fax
+        = f.input :email
+
+
+        hr
         = f.button :submit, class: 'btn-danger'
+
+
+javascript:
+  $(document).ready(function(){
+    var input = $('#company_phone');
+    var intl_tel = input.val();
+
+    input.intlTelInput({
+      defaultCountry: 'de',
+      onlyCountries: ['be', 'fr', 'ch', 'de'],
+      utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/7.1.1/lib/libphonenumber/build/utils.js',
+      nationalMode: true
+    });
+
+  });
+/ utilsScript: "#{javascript_path 'libphonenumber' }",

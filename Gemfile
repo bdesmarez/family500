@@ -28,6 +28,8 @@ gem 'slim-rails'
 gem 'bootstrap-sass', '~> 3.3.6'
 # Search form
 gem 'simple_form'
+# Phone format validation
+gem 'intl-tel-input-rails'
 # basic search tool
 gem 'ransack'
 # pagination
