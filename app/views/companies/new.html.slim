@@ -1,0 +1,8 @@
+.container
+  br
+  .row
+    .col-lg-12
+      = simple_form_for @company, html: {class: 'form-horizontal'} do |f|
+        = f.input :name
+        = f.input :description
+        = f.button :submit, class: 'btn-danger'
