@@ -2,6 +2,8 @@
 class CompaniesController < ApplicationController
   def new
     @company = Company.new
+    @company.rankings.build
+    @company.contacts.build
   end
 
   def create
@@ -30,11 +32,11 @@ class CompaniesController < ApplicationController
       :name, :description, :family_business, :alias, :webiste,
       :branch, :creation_date, :postal_code, :city, :street,
       :phone, :mobile, :fax, :email, :family_name,
-      contact_attributes: [
+      contacts_attributes: [
         :civility, :title, :name, :firstname, :position,
         :phone, :mobile, :fax, :email
       ],
-      ranking_attributes: [
+      rankings_attributes: [
         :year, :turnover, :employees
       ]
     )

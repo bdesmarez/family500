@@ -15,8 +15,25 @@
         = f.input :fax
         = f.input :email
 
+        / Ranking form
+        = f.simple_fields_for :rankings do |fr|
+          = fr.input :year
+          = fr.input :turnover
+          = fr.input :employees
 
-        hr
+        / Contact form
+        = f.simple_fields_for :contacts do |fc|
+          = fc.input :civility
+          = fc.input :title
+          = fc.input :name
+          = fc.input :firstname
+          = fc.input :position
+          = fc.input :phone
+          = fc.input :mobile
+          = fc.input :fax
+          = fc.input :email
+
+
         = f.button :submit, class: 'btn-danger'
 
 
