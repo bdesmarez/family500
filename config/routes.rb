@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   resources :companies, only: :show, constraints: -> (req) { req.xhr? }
+  resources :companies, only: [:new, :create, :update]
   resources :home, only: :index, via: [:get, :post]
 
   # Example resource route with options:

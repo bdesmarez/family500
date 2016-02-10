@@ -1,3 +1,4 @@
+# Model for rankings (chiffre d'affaires)
 class Ranking < ActiveRecord::Base
   belongs_to :company
 

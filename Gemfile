@@ -28,6 +28,8 @@ gem 'slim-rails'
 gem 'bootstrap-sass', '~> 3.3.6'
 # Search form
 gem 'simple_form'
+# Phone format validation
+gem 'intl-tel-input-rails'
 # basic search tool
 gem 'ransack'
 # pagination
@@ -44,8 +46,6 @@ gem 'will_paginate-bootstrap'
 # gem 'capistrano-rails', group: :development
 
 gem 'puma'
-
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
