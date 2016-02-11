@@ -31,7 +31,7 @@ class CompaniesController < ApplicationController
     params.require(:company).permit(
       :name, :description, :family_business, :alias, :webiste,
       :branch, :creation_date, :postal_code, :city, :street,
-      :phone, :mobile, :fax, :email, :family_name,
+      :phone, :mobile, :fax, :email, :family_name, :inovation,
       contacts_attributes: [
         :civility, :title, :name, :firstname, :position,
         :phone, :mobile, :fax, :email
